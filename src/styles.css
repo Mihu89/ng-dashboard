@@ -18,10 +18,32 @@ a{
 a:hover{
     color: #44a8cf;
 }
-.shadow {
-    box-shadow: 0 8px 12px rgb(0,0,0,0.2) 0 5px 6px rgb(0,0,0,0.3);
+.card-theme{
+    background-color: #191f26;
+    border: none;
+    border-radius: 3px;
+}
+
+.card-heading-theme{
+    color: #ffffff;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding:12px;
+}
+
+.card-body-theme{
+    background-color: #494f56;
+}
+
+.cards{
+    display: flex;
+    flex-direction: column;
 }
 
 .section-container{
     padding: 30px;
+}
+
+.shadow {
+    box-shadow: 0 8px 12px rgb(0,0,0,0.2) 0 5px 6px rgb(0,0,0,0.3);
 }

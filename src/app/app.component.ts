@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ng-dashboard';
+  title = 'Angular-dashboard 1.0';
+  subtitle = "WebAPI Core 3.1";
 }

@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class LineChartComponent implements OnInit {
 
   constructor() { }
+  
 
   ngOnInit(): void {
   }

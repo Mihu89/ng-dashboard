@@ -6,5 +6,5 @@ export interface Order {
     total: number;
     ordered: Date;
     closed: Date; 
-    state: string;
+    status: string;
 }

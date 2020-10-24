@@ -1,3 +1,4 @@
+using RestApiDemo.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -124,6 +125,51 @@ namespace RestApiDemo
 "Shirlene",
 "Tanja",
   };
+    private static readonly List<string> ORDER_STATUS = new List<string>
+    {
+      "Incomplete",
+      "Pending",
+      "Shipped",
+      "Partially Shipped  ",
+      "Refunded",
+      "Cancelled",
+      "Declined",
+      "Awaiting Payment",
+      "Awaiting Pickup",
+      "Awaiting Shipment",
+      "Completed",
+      "Awaiting Fulfillment",
+      "Manual Verification Required",
+      "Disputed",
+      "Partially Refunded",
+    };
+
+    internal static string GetRandomOrderStatus()
+    {
+      return GetRandom(ORDER_STATUS);
+    }
+
+    internal static DateTime? GetRandomClosedDate(DateTime ordered)
+    {
+      var now = DateTime.Now;
+      var minProcessingTime = TimeSpan.FromDays(5);
+      var timePassed = now - ordered;
+      if (timePassed < minProcessingTime)
+      {
+        return null;
+      }
+
+      return ordered.AddHours(_random.Next(20, 240));
+    }
+
+    internal static DateTime GetRandomOrderedDate()
+    {
+      var end = DateTime.Now.AddDays(-1);
+      var start = end.AddDays(-150);
+      var deltaTimeSpan = end - start;
+      var randomTimeSpan = new TimeSpan(0, _random.Next(0, (int)deltaTimeSpan.TotalMinutes), 0);
+      return start + randomTimeSpan;
+    }
 
     private static readonly List<string> LastNames = new List<string>()
     {
@@ -184,6 +230,16 @@ namespace RestApiDemo
       var first = GetRandom(FirstNames);
       var seccond = GetRandom(LastNames);
       return first + " " + seccond;
+    }
+
+    internal static string MakeEmail(string name)
+    {
+      return $"{name.ToLower()}_@mail.com";
+    }
+    public static Customer GetRandomCustomer(ApplicationDbContext ctx)
+    {
+      var randomId = _random.Next(1, ctx.Customers.Take(50).Count());
+      return ctx.Customers.First(c => c.Id == randomId);
     }
   }
 }

@@ -45,6 +45,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-/bin
-/obj
-/.vs
+webApi/RestApiDemo/.vs
+webApi/RestApiDemo/RestApiDemo/obj
+webApi/RestApiDemo/RestApiDemo/bin

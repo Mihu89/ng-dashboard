@@ -47,7 +47,7 @@ namespace RestApiDemo
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataSeed dataSeed)
     {
       if (env.IsDevelopment())
       {
@@ -61,6 +61,7 @@ namespace RestApiDemo
 
       app.UseAuthorization();
 
+      dataSeed.SeedData(50, 1200);
       app.UseEndpoints(endpoints =>
       {
         endpoints.MapControllers();
